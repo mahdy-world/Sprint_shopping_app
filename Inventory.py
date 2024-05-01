@@ -23,7 +23,8 @@ class Inventory:
         self.items.append(item)
         #print("-----",self.items[-1].ItemID)
         return item
-
+    
+    # Method to remove product 
     def remove_product(self,index):
       for i in self.items:
           if i.ItemID==index:
@@ -39,7 +40,7 @@ class Inventory:
             self.items[index].Revenue=self.items[index].sales*self.items[index].price
         self.items[index].Quantity=NewStock
     
-    
+    # Method to create sales report 
     def SalesReport(self,index):    
         print("This Product was sold for ",self.items[index].sales," and has total Revenue of ",self.items[index].Revenue," EGP")
 

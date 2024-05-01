@@ -10,7 +10,7 @@ def display_menu():
 
 
 def main():
-      # Create an instance of Inventory to manage products
+    # Create an instance of Inventory to manage products
     cart = ShoppingCart()    # Create an instance of ShoppingCart to manage the cart
     # # Sample products
     # inventory.add_product(Product(1, "Laptop", 1000, 5))
@@ -25,16 +25,21 @@ def main():
         while choice == '1':
             inventory.display_details()
             product_create = int(input("Choose \n 1 to create new product \n 2 to update inventory \n 3 to remove product: "))
+            
             if product_create == 1:
                 name=input("Please Enter product Name: ")
                 price=float(input("Please Enter Product Price: "))
+                
                 while(price<=0):
                     print("Sorry, But Products can't be listed for free \n")
                     price=float(input("Please Enter Product Price: "))
+                    
                 quantity=int(input("Please Enter your product quantity: "))
+                
                 while(quantity<=0):
                     print("Sorry, But Products can't be listed for free \n")
                     quantity=int(input("Please Enter your product quantity: "))
+                    
                 ItemRevenue=0
                 ItemSales=0
                 inventory.add_product(name,price,quantity,ItemRevenue,ItemID,ItemSales)
@@ -42,9 +47,11 @@ def main():
                 print("Item added to Sharks Inventory successfuly \n")
                 choice=0
                 inventory.display_details()
+                
             elif product_create==2:
                 id=int(input("Please Enter your product ID: "))
                 flag=None
+                
                 for index, i in enumerate(inventory.items):
                     if i.ItemID == id:
                          NewStock=int(input("Please Enter your new Stock Quantity: "))
@@ -54,6 +61,7 @@ def main():
                     pass
                 else:
                     print("ID not Found\n")
+                    
             elif product_create ==3:
                 id=int(input("Please Enter your product ID: "))
                 inventory.remove_product(id)
